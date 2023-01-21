@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.mainContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+}
+.imageContainer {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.signUp {
+  width: 50%;
+}
+.loginContainer {
+  width: 40%;
+}
+.leftSide {
+  width: 40%;
+}
+.homePageflexbox {
+  display: flex;
+  justify-content: space-evenly;
+}
+.headingInhome {
+  display: flex;
+  justify-content: space-between;
+}
+.subjectCardContain {
+  width: 250px;
+  hight: 300px;
+}
+.coursesContainer {
+  display: flex;
+  width: 70%;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.coursesContainerDad {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.cardImageContainer {
+  width: 100%;
+  height: 200px;
+}
+.subjectImage {
+  width: 100%;
+  height: 100%;
+}
