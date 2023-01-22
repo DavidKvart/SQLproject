@@ -9,12 +9,17 @@ import Login from "./components/content/auth/login";
 import Intro from "./components/content/pages/intro";
 import UserHome from "./components/content/pages/main";
 import ForgotPassword from "./components/content/auth/forgotPass";
+import HomePage from "./components/content/pages/homePage";
+import { useContext } from "react";
+import { UserContext } from "./components/context/authContext";
 const App = () => {
+  const { user } = useContext(UserContext);
   return (
     <>
       <Navbar />
+
       <Routes>
-        <Route path="/" element={<Intro />} />
+        {!user ? <Route path="/" element={<Intro />} /> : <Route path="/" element={<HomePage />} />}
         <Route path="/creatpass" element={<ForgotPassword />} />
         <Route path="user" element={<DefultPage />}>
           <Route path="acount" element={<ManageAcount />} />

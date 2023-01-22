@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "./../context/authContext";
+import { useContext } from "react";
 const Navbar = () => {
+  const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
-  const [userDetail, setUserDetail] = useState("");
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setUserDetail(localStorage.getItem("token"));
-    }
-  }, []);
+
   return (
     <header className="p-3 mb-3 border-bottom">
       <div className="container">
@@ -19,7 +17,7 @@ const Navbar = () => {
           </Link>
 
           <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            {userDetail && (
+            {user && (
               <>
                 <li>
                   <Link to="/user/browse" className="nav-link px-2 link-dark">
@@ -40,9 +38,9 @@ const Navbar = () => {
             )}
           </ul>
 
-          {userDetail && <article style={{ paddingRight: "1rem" }}>david kvart</article>}
+          {user && <article style={{ paddingRight: "1rem" }}>david kvart</article>}
 
-          {!userDetail ? (
+          {!user ? (
             <Link className="nav-link px-2 link-dark" to="/login">
               Login
             </Link>
@@ -52,12 +50,14 @@ const Navbar = () => {
               class="btn btn-light"
               onClick={() => {
                 localStorage.removeItem("token");
+                setUser("");
                 navigate("/");
               }}
             >
               Logout
             </button>
           )}
+
           <div className="dropdown text-end">
             <Link to="#" className="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle"></img>

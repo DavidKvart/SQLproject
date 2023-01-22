@@ -2,28 +2,34 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import jwt from "jwt-decode";
+import { useContext } from "react";
+import { UserContext } from "../../context/authContext";
+
 const UserHome = () => {
+  const { user } = useContext(UserContext);
   const [courses, setCourses] = useState([]);
   const [userDetail, setUserDetail] = useState([]);
   const [change, setChange] = useState([]);
 
   const navigate = useNavigate();
+
   async function removeCourse(course_id) {
     let url = "http://localhost:3000/api/courses/removeCourse";
     let value = { course_id: course_id };
-    console.log(course_id);
     axios
       .post(url, value)
       .then((res) => {
         setChange(!change);
+        getCourses();
       })
       .catch((err) => {
         console.log(err);
       });
   }
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      const decoded = jwt(localStorage.getItem("token"));
+
+  function getCourses() {
+    if (user) {
+      const decoded = jwt(user);
       console.log(decoded);
       const url = "http://localhost:3000/api/users/getById";
       const value = decoded;
@@ -38,7 +44,10 @@ const UserHome = () => {
           console.log(err);
         });
     }
-  }, [change]);
+  }
+  useEffect(() => {
+    getCourses();
+  }, [user]);
 
   return (
     <div className="homePageflexbox">

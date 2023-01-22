@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../context/authContext";
 const Login = () => {
   let navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext);
   const {
     register,
     handleSubmit,
@@ -33,6 +36,8 @@ const Login = () => {
                     .post(url, user)
                     .then((res) => {
                       localStorage.setItem("token", res.headers["x-auth-token"]);
+                      console.log(res.headers["x-auth-token"]);
+                      setUser(res.headers["x-auth-token"]);
                     })
                     .catch((err) => {
                       alert(err);

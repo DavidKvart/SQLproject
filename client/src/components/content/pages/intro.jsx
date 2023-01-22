@@ -1,9 +1,12 @@
 import Signup from "../auth/signUp";
 import { useState } from "react";
 import Login from "../auth/login";
+import { useContext } from "react";
+import { UserContext } from "./../../context/authContext";
 
 const Intro = () => {
   const [authType, setAuthType] = useState(true);
+  const { user, setUser } = useContext(UserContext);
   const handleAuth = () => {
     let temp = !authType;
     setAuthType(temp);
@@ -20,7 +23,7 @@ const Intro = () => {
         <button type="button" class="btn btn-light" onClick={handleAuth}>
           sign up
         </button>
-        {localStorage.getItem("token") ? <div>blala</div> : authType ? <Signup /> : <Login />}
+        {user ? <div>blala</div> : authType ? <Signup /> : <Login />}
       </div>
     </div>
   );
