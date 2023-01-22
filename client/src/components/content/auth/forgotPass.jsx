@@ -1,8 +1,10 @@
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { required } from "joi";
+import { UserContext } from "../../context/authContext";
+import { useContext } from "react";
 const ForgotPassword = () => {
+  const { user, setUser } = useContext(UserContext);
   let navigate = useNavigate();
   const {
     register,
@@ -35,6 +37,7 @@ const ForgotPassword = () => {
                     .then((res) => {
                       alert("you password has been changed! ");
                       localStorage.setItem("token", res.headers["x-auth-token"]);
+                      setUser(res.headers["x-auth-token"]);
                       navigate("/user/home");
                     })
                     .catch((err) => {

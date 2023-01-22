@@ -1,12 +1,15 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 .mainContainer {
   width: 100%;
@@ -39,24 +42,252 @@ code {
 }
 .subjectCardContain {
   width: 250px;
-  hight: 300px;
+  height: 300px;
 }
 .coursesContainer {
   display: flex;
   width: 70%;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 10vh;
 }
 .coursesContainerDad {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.cardImageContainer {
-  width: 100%;
-  height: 200px;
+
+.card1 {
+  width: 30vw;
+  height: 23vh;
+  background: #ffff;
+  box-shadow: 0 1px 25px rgba(0, 0, 0, 0.2);
+  /* position: absolute; */
+  top: 50%;
+  left: 50%;
+  padding: 12px 10px;
+  border-radius: 1vh;
+  transition: ease-out 0.5s;
 }
-.subjectImage {
-  width: 100%;
-  height: 100%;
+.card1:hover {
+  scale: 1.2;
+  transition: ease-in-out 0.5s;
+}
+.card_load_docker {
+  width: 10vw;
+  height: 10vw;
+  position: relative;
+  float: left;
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #e5e5e5 48%
+  );
+  background-image: url(../public/images/docker.png);
+  background-repeat: no-repeat;
+  border-radius: ;
+  background-size: 85% 85%;
+  background-position: 50% 50%;
+  transition: ease-out 0.5s;
+}
+.card_load_Java {
+  width: 10vw;
+  height: 10vw;
+  position: relative;
+  float: left;
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #e5e5e5 48%
+  );
+  background-image: url(../public/images/java.png);
+  background-repeat: no-repeat;
+  border-radius: ;
+  background-size: 100% 90%;
+  background-position: 100% 50%;
+  transition: ease-out 0.5s;
+}
+.card_load_JavaScript {
+  width: 10vw;
+  height: 10vw;
+  position: relative;
+  float: left;
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #e5e5e5 48%
+  );
+  background-image: url(../public/images/JavaScript.png);
+  background-repeat: no-repeat;
+  border-radius: ;
+  background-size: 100% 90%;
+  background-position: 100% 50%;
+  transition: ease-out 0.5s;
+}
+.card_load_Mongo {
+  width: 10vw;
+  height: 10vw;
+  position: relative;
+  float: left;
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #e5e5e5 48%
+  );
+  background-image: url(../public/images/Mongo.png);
+  background-repeat: no-repeat;
+  border-radius: ;
+  background-size: 100% 90%;
+  background-position: 100% 50%;
+  transition: ease-out 0.5s;
+}
+.card_load_python {
+  width: 10vw;
+  height: 10vw;
+  position: relative;
+  float: left;
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #e5e5e5 48%
+  );
+  background-image: url(../public/images/python.png);
+  background-repeat: no-repeat;
+  border-radius: ;
+  background-size: 140% 140%;
+  background-position: 50% 50%;
+  transition: ease-out 0.5s;
+}
+.card_load_React {
+  width: 10vw;
+  height: 10vw;
+  position: relative;
+  float: left;
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #e5e5e5 48%
+  );
+  background-image: url(../public/images/React.png);
+  background-repeat: no-repeat;
+  border-radius: ;
+  background-size: 100% 90%;
+  background-position: 100% 50%;
+  transition: ease-out 0.5s;
+}
+.card_load_SQL {
+  width: 10vw;
+  height: 10vw;
+  position: relative;
+  float: left;
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #e5e5e5 48%
+  );
+  background-image: url(../public/images/SQL2.png);
+  border-radius: ;
+  background-size: 100% 90%;
+  background-position: 100% 50%;
+  transition: ease-out 0.5s;
+}
+.card_load_docker:hover {
+  scale: 1.3;
+  transform: rotate(360deg);
+  transition: ease-in-out 0.5s;
+}
+.card_load_Java:hover {
+  scale: 1.2;
+  transform: rotate(360deg);
+  transition: ease-in-out 0.5s;
+}
+.card_load_JavaScript:hover {
+  scale: 1.3;
+  transform: rotate(360deg);
+  transition: ease-in-out 0.5s;
+}
+.card_load_Mongo:hover {
+  scale: 1.3;
+  transform: rotate(360deg);
+  transition: ease-in-out 0.5s;
+}
+.card_load_python:hover {
+  scale: 1.3;
+  transform: rotate(360deg);
+  transition: ease-in-out 0.5s;
+}
+.card_load_React:hover {
+  scale: 1.3;
+  transform: rotate(360deg);
+  transition: ease-in-out 0.5s;
+}
+.card_load_SQL:hover {
+  scale: 1.1;
+  transform: rotate(360deg);
+  transition: ease-in-out 0.5s;
+}
+.card_load_extreme_title {
+  width: 18vw;
+  height: 3vh;
+  position: relative;
+  float: right;
+  border-radius: 5px;
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #e5e5e5 48%
+  );
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  text-align: center;
+  font-weight: 700;
+  font-family: 'Gill Sans', sans-serif;
+  color: rgb(58, 56, 56);
+  /* animation: load89234 2s infinite; */
+}
+.card_load_extreme_descripion {
+  width: 18vw;
+  height: 15vh;
+  position: relative;
+  float: right;
+  border-radius: 5px;
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #e5e5e5 48%
+  );
+  margin-top: 10px;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  /* animation: load89234 2s infinite; */
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+/* .card_load_extreme_descripion::-webkit-scrollbar {
+  display: none;
+} */
+p {
+  font-family: 'Gill Sans', sans-serif;
+  color: rgb(58, 56, 56);
+}
+h6 {
+  font-family: 'Gill Sans', sans-serif;
+  color: rgb(58, 56, 56);
 }
