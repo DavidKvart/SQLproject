@@ -1,19 +1,50 @@
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { UserContext } from "./../context/authContext";
-import { useContext } from "react";
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { UserContext } from './../context/authContext';
+import { useContext } from 'react';
+import jwt from 'jwt-decode';
+import axios from 'axios';
+import { stripBasename } from '@remix-run/router';
 const Navbar = () => {
   const { user, setUser } = useContext(UserContext);
+  const [name, setName] = useState('');
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (user) {
+      const decoded = jwt(user);
+      axios
+        .post('http://localhost:3000/api/users/getById', decoded)
+        .then((res) => {
+          console.log(res.data);
+          setName(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [user]);
   return (
     <header className="p-3 mb-3 border-bottom">
       <div className="container">
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <Link to="/" className="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-            <svg className="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
-            here add logo
+          <Link
+            to="/"
+            className="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+            <svg
+              className="bi me-2"
+              width="40"
+              height="32"
+              role="img"
+              aria-label="Bootstrap"></svg>
+
+            <img
+              id="logo"
+              style={{ width: '8vw' }}
+              src="/images/logo.png"
+              alt=""
+            />
           </Link>
 
           <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -21,7 +52,7 @@ const Navbar = () => {
               <>
                 <li>
                   <Link to="/user/browse" className="nav-link px-2 link-dark">
-                    browse
+                    Browse
                   </Link>
                 </li>
                 <li>
@@ -29,16 +60,15 @@ const Navbar = () => {
                     My profile
                   </Link>
                 </li>
-                <li>
-                  <Link to="/user/acount" className="nav-link px-2 link-dark">
-                    manage acount
-                  </Link>
-                </li>
               </>
             )}
           </ul>
 
-          {user && <article style={{ paddingRight: "1rem" }}>david kvart</article>}
+          {user && (
+            <article style={{ paddingRight: '1rem' }}>
+              Hello {name && name?.userData?.name} !
+            </article>
+          )}
 
           {!user ? (
             <Link className="nav-link px-2 link-dark" to="/login">
@@ -49,18 +79,26 @@ const Navbar = () => {
               type="button"
               class="btn btn-light"
               onClick={() => {
-                localStorage.removeItem("token");
-                setUser("");
-                navigate("/");
-              }}
-            >
+                localStorage.removeItem('token');
+                setUser('');
+                navigate('/');
+              }}>
               Logout
             </button>
           )}
 
           <div className="dropdown text-end">
-            <Link to="#" className="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" className="rounded-circle"></img>
+            <Link
+              to="#"
+              className="d-block link-dark text-decoration-none dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <img
+                src="/images/avatar.jpeg"
+                alt="mdo"
+                width="32"
+                height="32"
+                className="rounded-circle"></img>
             </Link>
             <ul className="dropdown-menu text-small">
               <li>

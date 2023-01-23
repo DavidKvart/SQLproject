@@ -291,3 +291,221 @@ h6 {
   font-family: 'Gill Sans', sans-serif;
   color: rgb(58, 56, 56);
 }
+.card3 {
+  width: 190px;
+  height: 254px;
+  position: relative;
+  outline: 0.5em solid #f5f5f5;
+  background: #ff930f;
+  background: linear-gradient(to top, #ff930f 0%, #fffa5c 100%);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.card4 {
+  width: 190px;
+  height: 254px;
+  position: relative;
+  outline: 0.5em solid #f5f5f5;
+  background: #b7ff0f;
+  background: linear-gradient(to top, #8ec50e 0%, #bae97d 100%);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.card5 {
+  width: 190px;
+  height: 254px;
+  position: relative;
+  outline: 0.5em solid #f5f5f5;
+  background: #0e86ef;
+  background: linear-gradient(to top, #0e86ef 0%, #5cbbff 100%);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.card6 {
+  width: 190px;
+  height: 254px;
+  position: relative;
+  outline: 0.5em solid #f5f5f5;
+  background: #db0fff;
+  background: linear-gradient(to top, #d841f3 0%, #ab5cff 100%);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.card7 {
+  width: 190px;
+  height: 254px;
+  position: relative;
+  outline: 0.5em solid #f5f5f5;
+  background: #f1310b;
+  background: linear-gradient(to top, #f1310b 0%, #ee7c62 100%);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.card8 {
+  width: 190px;
+  height: 254px;
+  position: relative;
+  outline: 0.5em solid #f5f5f5;
+  background: #f00e92;
+  background: linear-gradient(to top, #f00e92 0%, #e068ae 100%);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  background-color: rgba(80, 64, 44, 0);
+  transition: background-color 1s;
+}
+
+.card-info {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  padding: 1.5em;
+  text-align: center;
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.card-bio {
+  padding: 1.8em;
+  text-align: center;
+  transform: translate(100%, 40%);
+  transition: transform 1s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.card-bio p {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5em;
+}
+
+.title {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 2px;
+  margin: 0 auto 4%;
+  background-color: white;
+}
+
+.subtitle {
+  font-weight: 400;
+  line-height: 1em;
+}
+
+/*Hover*/
+.card3:hover::before {
+  background-color: rgba(80, 64, 44, 0.25);
+}
+
+.card3:hover .card-info {
+  transform: translateX(-100%);
+}
+
+.card3:hover .card-bio {
+  transform: translate(0, 40%);
+  opacity: 1;
+}
+/* ========================== */
+.card4:hover::before {
+  background-color: rgba(80, 64, 44, 0.25);
+}
+
+.card4:hover .card-info {
+  transform: translateX(-100%);
+}
+
+.card4:hover .card-bio {
+  transform: translate(0, 40%);
+  opacity: 1;
+}
+/* ========================== */
+.card5:hover::before {
+  background-color: rgba(80, 64, 44, 0.25);
+}
+
+.card5:hover .card-info {
+  transform: translateX(-100%);
+}
+
+.card5:hover .card-bio {
+  transform: translate(0, 40%);
+  opacity: 1;
+}
+/* ========================== */
+.card6:hover::before {
+  background-color: rgba(80, 64, 44, 0.25);
+}
+
+.card6:hover .card-info {
+  transform: translateX(-100%);
+}
+
+.card6:hover .card-bio {
+  transform: translate(0, 40%);
+  opacity: 1;
+}
+/* ========================== */
+.card7:hover::before {
+  background-color: rgba(80, 64, 44, 0.25);
+}
+
+.card7:hover .card-info {
+  transform: translateX(-100%);
+}
+
+.card7:hover .card-bio {
+  transform: translate(0, 40%);
+  opacity: 1;
+}
+/* ========================== */
+.card8:hover::before {
+  background-color: rgba(80, 64, 44, 0.25);
+}
+
+.card8:hover .card-info {
+  transform: translateX(-100%);
+}
+
+.card8:hover .card-bio {
+  transform: translate(0, 40%);
+  opacity: 1;
+}
+
+.coursesContainer1 {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 7vh;
+}
+.coursesContainerDad1 {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  justify-content: center;
+  gap: 5vw;
+  margin-bottom: 10vh;
+}
+.bigti {
+  font-size: 3em;
+  font-weight: bold;
+}

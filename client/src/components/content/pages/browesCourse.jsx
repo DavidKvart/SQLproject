@@ -40,7 +40,11 @@ const BrowsCourses = () => {
               let classN = 'card_load_' + subject.subject;
               return (
                 <div class="card1">
-                  <div class={classN}></div>
+                  <div
+                    class={classN}
+                    onClick={() =>
+                      submitToCourse(subject.subject_id, subject.subject)
+                    }></div>
                   <div class="card_load_extreme_title">{subject.subject}</div>
                   <div class="card_load_extreme_descripion">
                     <p>
